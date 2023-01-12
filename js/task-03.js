@@ -14,7 +14,7 @@ const images = [
 ];
 
 const ulEl = document.querySelector('.gallery');
-const element = images.map(image => {
+const element = images.forEach(image => {
   ulEl.insertAdjacentHTML(
     'beforeend',
     `<li>
@@ -22,4 +22,8 @@ const element = images.map(image => {
     alt = "${image.alt}"/>
     </li>`
   );
+
+  const liEl = document.querySelector('li');
+  liEl.style.display = 'flex';
+  liEl.style.styleList = 'none';
 });
