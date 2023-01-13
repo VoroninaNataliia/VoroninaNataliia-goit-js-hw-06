@@ -14,16 +14,22 @@ const images = [
 ];
 
 const ulEl = document.querySelector('.gallery');
-const element = images.forEach(image => {
-  ulEl.insertAdjacentHTML(
-    'beforeend',
-    `<li>
-    <img src = ${image.url}
-    alt = "${image.alt}"/>
-    </li>`
-  );
+console.log(ulEl);
 
-  const liEl = document.querySelector('li');
-  liEl.style.display = 'flex';
-  liEl.style.styleList = 'none';
-});
+const imgArr = images
+  .map(image => {
+    return `
+    <li>
+    <img src = '${image.url}' alt = '${image.alt}' width = 700/>
+    </li>`;
+  })
+  .join('');
+
+console.log(imgArr);
+
+ulEl.insertAdjacentHTML('beforeend', imgArr);
+
+ulEl.style.display = 'flex';
+ulEl.style.flexDirection = 'column';
+ulEl.style.alignItems = 'center';
+ulEl.style.gap = '20px';

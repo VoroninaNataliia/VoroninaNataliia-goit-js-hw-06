@@ -4,6 +4,10 @@ const spanEl = document.querySelector('span');
 inputEl.addEventListener('input', onInputChange);
 
 function onInputChange(e) {
-  console.log(e.currentTarget.value);
-  spanEl.textContent = e.currentTarget.value;
+  if (inputEl.value !== '') {
+    console.log(inputEl.value);
+    spanEl.textContent = e.currentTarget.value;
+  } else {
+    spanEl.textContent = 'Anonymous';
+  }
 }
